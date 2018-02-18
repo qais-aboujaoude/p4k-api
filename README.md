@@ -11,9 +11,8 @@ These instructions will get you a copy of the project up and running on your loc
 Not added to npm yet (WIP)
 
 ```
-Only option is to clone the repo
-npm install
-and require/import index.js
+npm install p4k-api
+
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
