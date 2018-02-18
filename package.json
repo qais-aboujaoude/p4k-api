@@ -13,7 +13,7 @@
     "crawling",
     "pitchfork"
   ],
-  "repository": "gitlab:qiaboujaoude/p4k-api",
+  "repository": "github:qais-aboujaoude/p4k-api",
   "author": "qais aboujaoude",
   "license": "GPLv3",
   "dependencies": {
