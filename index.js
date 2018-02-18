@@ -1,7 +1,6 @@
 const axios   = require('axios'),
       cheerio = require('cheerio')
       baseURL = 'http://pitchfork.com'
-let selec = 'ul.results-fragment'
 
 const getAlbumReview = (artist, album) => {
   return new Promise((resolve, reject) => {
@@ -29,30 +28,12 @@ const pitchfork = () => {
             score: $('span.score').text(),
             reviewURL: `${baseURL}${url[0]}`,
             reviewTitle: $('.review-detail__abstract').text(),
-            reviewBody: $('.review-detail__text').text()
+            reviewBody: $('div.contents').text()
           })
         })
       })
+      .catch(err => console.log(err))
   })
 }
 
-pitchfork().then(r => console.log(r.reviewBody))
-
-/*
-const pitchfork = () => {
-  return new Promise((resolve, reject) => {
-    getAlbumReview('radiohead', 'a moon shaped pool')
-      .then(r => {
-        let x = return axios.get(baseURL + r)
-        console.log(x)
-        axios.get(baseURL + r)
-          .then(r => {
-            let $ = cheerio.load(r.data)
-            return resolve({
-              score: $('span.score').text(),
-            })
-          })
-          .catch(err => console.log(err))
-      })
-  })
-} */
+pitchfork().then(r => console.log(JSON.stringify(r)))
