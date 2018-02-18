@@ -1,5 +1,5 @@
 # p4k-api
-
+*WORK IN PROGRESS*
 An unofficial node.js API to access Pitchfork reviews. Inspired by [pitchfork-npm](https://github.com/omardelarosa/pitchfork-npm)
 
 ## Getting Started
@@ -14,6 +14,9 @@ Not added to npm yet (WIP)
 npm install p4k-api
 
 ```
+### Usage 
+
+require the module in your code
 
 End with an example of getting some data out of the system or using it for a little demo
 
