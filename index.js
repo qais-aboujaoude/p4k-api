@@ -2,9 +2,9 @@ const axios   = require('axios'),
       cheerio = require('cheerio')
       baseURL = 'http://pitchfork.com'
 
-const getAlbumReview = (artist, album) => {
+const getReviewURL = (query) => {
   return new Promise((resolve, reject) => {
-    return axios.get(`${baseURL}/search/?query=${artist}+${album}`)
+    return axios.get(`${baseURL}/search/?query=${query}`)
       .then(r => {
         let links = []
         let $ = cheerio.load(r.data)
@@ -17,9 +17,9 @@ const getAlbumReview = (artist, album) => {
       .catch(err => console.log(err))
   })
 }
-const pitchfork = () => {
+const getReview = (artist, album) => {
   return new Promise((resolve, reject) => {
-    getAlbumReview('radiohead', 'a moon shaped pool')
+    getReviewURL(`${artist}+${album}`)
       .then(url => {
         axios.get(`${baseURL}${url[0]}`)
         .then(r => {
@@ -36,4 +36,4 @@ const pitchfork = () => {
   })
 }
 
-pitchfork().then(r => console.log(JSON.stringify(r)))
+getReview('radiohead', 'a moon shaped pool').then(r => console.log(JSON.stringify(r)))
