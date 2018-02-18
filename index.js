@@ -1,5 +1,5 @@
 const axios   = require('axios'),
-      cheerio = require('cheerio')
+      cheerio = require('cheerio'),
       baseURL = 'http://pitchfork.com'
 
 const getReviewURL = (query) => {
